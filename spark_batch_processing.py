@@ -16,7 +16,7 @@ df = spark.read \
 # Transform
 df = df.withColumn("date", to_date("timestamp"))
 
-agg_df = df.groupBy("company", "date").agg(
+agg_df = df.groupBy("company", "date").agg( 
     first("open").alias("open"),
     last("price").alias("close"),
     max("high").alias("high"),
